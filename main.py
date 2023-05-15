@@ -1,16 +1,17 @@
-# This is a sample Python script.
+def sum_after_zero(arr):
+    zero = False # Инициализирует переменную zero как False, чтобы отслеживать, найден ли уже первый нулевой элемент
+    sum = 0 # Инициализирует переменную sum как 0, чтобы суммировать отрицательные элементы
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    for num in arr: # Проходит по каждому элементу num в массиве arr.
+        if zero and num < 0:
+            sum += num # Если zero равно True и текущий элемент num отрицательный (num < 0), добавляет его к sum
 
+        if not zero and num == 0: #
+            zero = True # Если zero равно False и текущий элемент num равен нулю (num == 0), устанавливает zero в True, чтобы отметить, что первый нулевой элемент был найден
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    return sum # Возвращает sum после завершения цикла.
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#Пример
+array = [2, 3, -5, 0, -1, 4, -2, 0, 6, -8, -9]
+result = sum_after_zero(array)
+print("Сумма отрицательных элементов после первого нулевого элемента:", result)
